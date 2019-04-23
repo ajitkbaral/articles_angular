@@ -1,0 +1,3 @@
+<app-search-box (searchTextEmitter)="searchArticle($event)"></app-search-box>
+<app-article-item *ngFor="let article of filteredArticles" [article]="article">
+</app-article-item>

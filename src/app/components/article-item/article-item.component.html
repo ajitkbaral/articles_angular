@@ -1,0 +1,17 @@
+<div class="card mt-4">
+    <div class="card-body" *ngIf="article; else elseBlock">
+        <h1 class='card-title'>{{article.title}}</h1>
+        <p class='card-text'>{{article.body}}</p>
+        <button class='btn btn-sm btn-warning' (click)="updateArticle(article.id)">Update</button>
+        <button class='btn btn-sm btn-primary float-right' (click)="viewArticle(article)" *ngIf="action=='view';else elseBlock">View</button>
+        <ng-template #elseBlock>
+                <button class='btn btn-sm btn-danger float-right' (click)="deleteArticle(article)">Delete</button>
+        </ng-template>
+    </div>
+    <ng-template #elseBlock>
+        <div class="card-body">
+            <p class='card-text'>Article Not Found</p>
+        </div>
+
+    </ng-template>
+</div>

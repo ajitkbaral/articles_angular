@@ -1,0 +1,17 @@
+<div class='mt-2'>
+  <h1 *ngIf="page === 'add'; else h1EditBlock">Add an article</h1>
+  <ng-template #h1EditBlock>
+    <h1>Edit the article</h1>
+  </ng-template>
+  <form>
+      <label for="title">Article Title</label>
+      <input type="text" name="title" class='form-control' [(ngModel)]="title" value="article.title">
+      <label for="title" class="mt-2">Article Body</label>
+      <textarea name="body" cols="30" rows="10" class='form-control' [(ngModel)]="body"></textarea>
+      <button class="btn btn-sm btn-warning float-right mt-2" *ngIf="page === 'add'; else buttonEditBlock" (click)="addArticle()">Add</button>
+    <ng-template #buttonEditBlock>
+        <button class="btn btn-sm btn-warning float-right mt-2" (click)="editArticle()">Update</button>
+    </ng-template>
+
+    </form>
+</div>
